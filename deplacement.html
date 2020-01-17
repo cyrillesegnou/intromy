@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+		div {
+			background: blue;
+			width: 50px;
+			height: 50px;
+			top: 50px;
+			left:100px;
+			position: absolute;
+		}
+		</style>
+		<script type="text/javascript">
+		var dragAndDrop = false;
+		var offset = 20;
+
+		function showEvent(event){
+			for(var p in event){
+				console.log(p);
+				
+			}
+		}
+
+		function startDragAndDrop(event){
+			
+			dragAndDrop = true;
+			console.log("x : "+event.pageX+" - y : "+event.pageY);
+			console.log("target : "+event.target);
+		}
+
+		function stopDragAndDrop(event){
+			dragAndDrop = false;
+			console.log("x : "+event.pageX+" - y : "+event.pageY);
+		}
+
+		function executeDragAndDrop(event){
+			if(!dragAndDrop)
+				return;
+			document.getElementById("box").style.top = parseInt(event.pageY)-offset+"px";
+			document.getElementById("box").style.left = parseInt(event.pageX)-offset+"px";
+			console.log("x : "+event.pageX+" - y : "+event.pageY);
+		}
+		function cloner (){
+
+
+		}
+		window.onload = function(){
+			document.getElementById("clone").addEventListener("click", cloner);
+			document.getElementById("box").onmousedown = startDragAndDrop;
+			document.onmousemove = executeDragAndDrop;
+			document.getElementById("box").onmouseup = stopDragAndDrop;
+		}
+
+		</script>
+	</head>
+	<body>
+		<button id="clone" type="button" name="Clone"> Cloner </button>
+		<div id="container"> </div>
+		<div id="templateBox" style="visibility: hidden;"></div>
+		<div id="box"></div>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/verif.js"></script>
+    </head>
+    <body>
+        <h3>Formulaire d'inscription</h3>
+<form action="index.html" method="get" id="formulaire">
+        <select id="civilite" name="civilite">
+            <option value="M">M</option>
+            <option value="Mme">Mme</option>
+        </select>
+        <input type="text" class="verif" name="nom" placeholder="Votre nom" id="nom"/>
+        <span id="erreur-nom" style="visibility: hidden;color: red;">
+            Le champ 'nom' doit être rempli
+        </span><br>
+        <input type="text" class="verif" name="prenom" placeholder="Votre prénom" id="prenom"/>
+        <span id="erreur-prenom" style="visibility: hidden;color: red;">
+            Le champ 'prenom' doit être rempli
+        </span><br>
+        <input type="submit" value="Inscription" id="connexion"/>
+</form>
+<div id="error" style="visibility: hidden;color: red;">
+    Il y a des erreurs
+</div>
+</body>
+</html>
