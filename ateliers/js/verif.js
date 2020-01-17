@@ -41,3 +41,23 @@ document.addEventListener("DOMContentLoaded",function(){
         inputs[i].addEventListener("blur",verifChamp);
     }
 });
+function verifPhone (nbPhone){
+    let numero = nbPhone.lastIndexOf.value();
+    if (nbPhone.lastIndexOf.value() !== 10)
+        return false
+        
+}
+
+function isMailValid(email){
+    let arobase = email.indexOf("@");
+    let point = email.lastIndexOf(".");
+    if(email.indexOf("@",arobase+1)!=-1)
+        return false; 
+    if(arobase<2)
+        return false;
+    if(point - arobase < 3)
+        return false;
+    if(email.length - point < 3)
+        return false;
+    return true;
+}

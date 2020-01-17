@@ -26,6 +26,7 @@
 
 		function startDragAndDrop(event){
 			
+			elt
 			dragAndDrop = true;
 			console.log("x : "+event.pageX+" - y : "+event.pageY);
 			console.log("target : "+event.target);
@@ -49,6 +50,10 @@
 		}
 		window.onload = function(){
 			document.getElementById("clone").addEventListener("click", cloner);
+			let elts = document.getElementsByClassName("movable");
+			for(let i = 0 ; i<elts.length; i++) {
+				elts[i].addEventListener("mousedown")
+			}
 			document.getElementById("box").onmousedown = startDragAndDrop;
 			document.onmousemove = executeDragAndDrop;
 			document.getElementById("box").onmouseup = stopDragAndDrop;
@@ -60,6 +65,6 @@
 		<button id="clone" type="button" name="Clone"> Cloner </button>
 		<div id="container"> </div>
 		<div id="templateBox" style="visibility: hidden;"></div>
-		<div id="box"></div>
+		<div id="box" class="postit" class="movable"></div>
 	</body>
 </html>
